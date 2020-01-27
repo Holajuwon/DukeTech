@@ -7,7 +7,7 @@ const corsOption = { origin: "http://localhost:3000" };
 mongoose
   .connect(
     "mongodb+srv://hola:monehin@20@database-hgso4.mongodb.net/Todo?retryWrites=true&w=majority",
-    { useNewUrlParser: true }
+    { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(res => {
     console.log("connected");
