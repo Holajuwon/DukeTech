@@ -21,6 +21,10 @@ app.use(cors(corsOption));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get('/', (req, res)=>{
+  res.send("Successful Deployment")
+})
+
 app.get("/todos", (req, res) => {
   Todo.find({}, (err, allTodo) => {
     if (err) {
