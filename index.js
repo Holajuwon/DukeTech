@@ -4,10 +4,11 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const corsOption = { origin: "http://localhost:3000" };
 const Reservation = require("./model/reservationSchema");
+const db = process.env.MONGODB_URL
 
 // mongodb://localhost/Hotel
 mongoose
-  .connect("mongodb+srv://hola:qwert@dukehotel-6zccm.mongodb.net/duke?retryWrites=true&w=majority", {
+  .connect(db || "mongodb+srv://hola:qwert@dukehotel-6zccm.mongodb.net/duke?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
