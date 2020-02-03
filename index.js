@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const corsOption = { origin: "http://localhost:3000" };
+const corsOption = { origin: "https://dukehotel.netlify.com/" };
 const Reservation = require("./model/reservationSchema");
 const db = process.env.MONGODB_URL
 
