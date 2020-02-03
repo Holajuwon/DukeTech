@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const corsOption = { origin: "https://dukehotel.netlify.com/" };
+// const corsOption = { origin: "https://dukehotel.netlify.com/" };
 const Reservation = require("./model/reservationSchema");
 const db = process.env.MONGODB_URL
 
@@ -20,7 +20,7 @@ mongoose
   });
 
 const app = express();
-app.use(cors(corsOption));
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
