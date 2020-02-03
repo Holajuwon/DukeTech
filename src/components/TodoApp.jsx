@@ -48,7 +48,7 @@ const Todo = () => {
   }, [todo]);
 
   return (
-    <Layout>
+    <Fragment>
       {edit ? (
         <EditTodo
           currentTodo={currentTodo}
@@ -70,7 +70,7 @@ const Todo = () => {
           index={index}
         />
       ))}
-    </Layout>
+    </Fragment>
   );
 };
 
