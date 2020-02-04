@@ -2,22 +2,28 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
-// const corsOption = { origin: "https://dukehotel.netlify.com/" };
 const Reservation = require("./model/reservationSchema");
-const db = process.env.MONGODB_URL
+const User = require("./model/userSchema");
+const db = process.env.MONGODB_URL;
 
 // mongodb://localhost/Hotel
 mongoose
-  .connect(db || "mongodb+srv://hola:qwert@dukehotel-6zccm.mongodb.net/duke?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
+  .connect(
+    db ||
+      "mongodb+srv://hola:qwert@dukehotel-6zccm.mongodb.net/duke?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    }
+  )
   .then(res => {
     console.log("connected");
   })
   .catch(err => {
     console.log({ err });
   });
+
+// require('./utils/utils')
 
 const app = express();
 app.use(cors());
@@ -26,6 +32,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("Successful Deployment");
+  User.find({}, (err, users) => {
+    if (users) {
+      console.log(users);
+    }
+  });
+});
+
+app.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+  console.log({username, password});
+  User.findOne({ username, password }, (err, users) => {
+    if (users) {
+      console.log(users);
+     res.send(users);
+    } else {
+      throw new Error('User does not Exist')
+    }
+  });
 });
 
 app.get("/reservations", (req, res) => {
