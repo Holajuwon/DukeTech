@@ -41,13 +41,13 @@ app.get("/", (req, res) => {
 
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
-  console.log({username, password});
+  console.log({ username, password });
   User.findOne({ username, password }, (err, users) => {
     if (users) {
       console.log(users);
-     res.send(users);
+      res.send(users);
     } else {
-      throw new Error('User does not Exist')
+      console.error("User not found");
     }
   });
 });
