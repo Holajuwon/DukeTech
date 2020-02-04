@@ -40,11 +40,9 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  const { username, password } = req.body;
   console.log({ username, password });
   User.findOne({ username, password }, (err, users) => {
     if (users) {
-      console.log(users);
       res.send(users);
     } else {
       console.error("User not found");
