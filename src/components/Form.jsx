@@ -24,7 +24,7 @@ const Form = props => {
   const handleSubmit = e => {
     e.preventDefault();
     axios
-      .post("https://mighty-mesa-03143.herokuapp.com/add_reservation", {
+      .post("https://duketech-api.herokuapp.com/add_reservation", {
         firstName: todo.firstName,
         lastName: todo.lastName,
         email: todo.email,

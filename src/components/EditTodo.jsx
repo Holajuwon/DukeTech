@@ -14,7 +14,7 @@ const EditTodo = props => {
     e.preventDefault();
     props.setEdit(false);
     axios
-      .put(`https://mighty-mesa-03143.herokuapp.com/update-reservation/${props.currentTodoId}`, {
+      .put(`https://duketech-api.herokuapp.com/update-reservation/${props.currentTodoId}`, {
         firstName: todo.firstName,
         lastName: todo.lastName,
         email: todo.email,

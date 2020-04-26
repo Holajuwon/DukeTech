@@ -23,14 +23,14 @@ const Todo = () => {
 
   const handleGetTodo = () => {
     axios
-      .get("https://mighty-mesa-03143.herokuapp.com/reservations")
+      .get("https://duketech-api.herokuapp.com/reservations")
       .then(res => setTodo(res.data))
       .catch(err => console.log(err));
   };
 
   const handleDeleteOne = id => {
     axios
-      .delete(`https://mighty-mesa-03143.herokuapp.com/deleteOne/${id}`)
+      .delete(`https://duketech-api.herokuapp.com/deleteOne/${id}`)
       .then(res => console.log(res.data, "deleted"))
       .catch(err => console.log(err));
     console.log(id);
@@ -38,7 +38,7 @@ const Todo = () => {
 
   const handleRemoveAll = () => {
     axios
-      .delete(`https://mighty-mesa-03143.herokuapp.com/deleteAll`)
+      .delete(`https://duketech-api.herokuapp.com/deleteAll`)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
   };

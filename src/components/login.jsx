@@ -35,7 +35,7 @@ const Login = props => {
     e.preventDefault();
     const { username, password } = todo;
     axios
-      .post("https://mighty-mesa-03143.herokuapp.com/login", {
+      .post("https://duketech-api.herokuapp.com/login", {
         username,
         password
       })
